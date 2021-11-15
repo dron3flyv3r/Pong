@@ -5,7 +5,7 @@ import javax.swing.*;
 public class GameFrame extends JFrame{
     //diffing what GamePanel is
     GamePanel panel;
-// building a frame to run the panel in a frame
+// building a frame to run the panel in a frame 
     GameFrame(){
         panel = new GamePanel();
         this.add(panel);

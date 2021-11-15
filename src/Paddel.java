@@ -71,7 +71,7 @@ public class Paddel extends Rectangle{
         yVelocity = YDirection;
     }
     public void move() {
-        y = y + yVelocity;
+        y = y + yVelocity; 
     }
 
     //just colors the paddels aka players

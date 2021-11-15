@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-
 import java.util.*;
 import javax.swing.*;
 
@@ -12,7 +11,7 @@ public class GamePanel extends JPanel implements Runnable{
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH,GAME_HEIGHT);
     static final int BALL_DIMETER = 20;
     static final int PADDEL_WIDTH = 25;
-    static final int PADDEL_HEIGHT = 100;
+    static final int PADDEL_HEIGHT = 110;
 
     //Defines what what code mens  
     Thread gameThread;
@@ -91,7 +90,10 @@ public class GamePanel extends JPanel implements Runnable{
          //bounce ball of paddel
          if (ball.intersects(paddel1)) {
              ball.xVelocity = Math.abs(ball.xVelocity);
-             ball.xVelocity++; // for more speed
+             if (ball.xVelocity <= 22) {
+                ball.xVelocity++; // for more speed
+             }
+
          
          if (ball.yVelocity>0){
                 ball.yVelocity++; // for more speed of wall
@@ -103,7 +105,9 @@ public class GamePanel extends JPanel implements Runnable{
         }
          if (ball.intersects(paddel2)) {
              ball.xVelocity = Math.abs(ball.xVelocity);
-             ball.xVelocity++; // for more speed
+             if (ball.xVelocity <= 22) {
+                ball.xVelocity++; // for more speed
+             }
          
          if (ball.yVelocity>0){
                 ball.yVelocity++; // for more speed of wall
@@ -134,14 +138,12 @@ public class GamePanel extends JPanel implements Runnable{
         if (ball.x <=0) {
             score.player2++;
             newPaddles();
-            newBall();
-            System.out.println("player 2 has "+score.player2);
+            newBall(); 
         }
         if (ball.x >= GAME_WIDTH-BALL_DIMETER) {
             score.player1++;
             newPaddles();
             newBall();
-            System.out.println("player 1 has "+score.player1);
         } 
         
     }
@@ -150,7 +152,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void run() {
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
-        double ns = 1000000000 / amountOfTicks;
+        double ns = 1000000000 / amountOfTicks; 
         double delta = 0;
         while (true) {
             long now = System.nanoTime();
