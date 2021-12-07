@@ -10,8 +10,8 @@ public class GamePanel extends JPanel implements Runnable{
     static final int GAME_HEIGHT = (int)(GAME_WIDTH * (0.5555));
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH,GAME_HEIGHT);
     static final int BALL_DIMETER = 20;
-    static final int PADDEL_WIDTH = 25;
-    static final int PADDEL_HEIGHT = 110;
+    static final int PADDEL_WIDTH = 26;
+    static final int PADDEL_HEIGHT = 120;
 
     //Defines what what code mens  
     Thread gameThread;
@@ -46,8 +46,8 @@ public class GamePanel extends JPanel implements Runnable{
     //generate the players
     public void newPaddles() {
 
-        paddel1 = new Paddel(0,(GAME_HEIGHT/2)-(PADDEL_HEIGHT/2),PADDEL_WIDTH,PADDEL_HEIGHT,1);
-        paddel2 = new Paddel(GAME_WIDTH - PADDEL_WIDTH, (GAME_HEIGHT/2)-(PADDEL_HEIGHT/2),PADDEL_WIDTH,PADDEL_HEIGHT,2);
+        paddel1 = new Paddel(0+10,(GAME_HEIGHT/2)-(PADDEL_HEIGHT/2),PADDEL_WIDTH,PADDEL_HEIGHT,1);
+        paddel2 = new Paddel(GAME_WIDTH - PADDEL_WIDTH-10, (GAME_HEIGHT/2)-(PADDEL_HEIGHT/2),PADDEL_WIDTH,PADDEL_HEIGHT,2);
 
     }
 
@@ -90,13 +90,16 @@ public class GamePanel extends JPanel implements Runnable{
          //bounce ball of paddel
          if (ball.intersects(paddel1)) {
              ball.xVelocity = Math.abs(ball.xVelocity);
-             if (ball.xVelocity <= 22) {
+             if (ball.xVelocity <= 23) {
                 ball.xVelocity++; // for more speed
              }
 
          
          if (ball.yVelocity>0){
+             if (ball.yVelocity <= 23) {
                 ball.yVelocity++; // for more speed of wall
+             }
+                
          } else{
              ball.yVelocity--;
          }
@@ -105,12 +108,14 @@ public class GamePanel extends JPanel implements Runnable{
         }
          if (ball.intersects(paddel2)) {
              ball.xVelocity = Math.abs(ball.xVelocity);
-             if (ball.xVelocity <= 22) {
+             if (ball.xVelocity <= 23) {
                 ball.xVelocity++; // for more speed
              }
          
          if (ball.yVelocity>0){
-                ball.yVelocity++; // for more speed of wall
+                if (ball.yVelocity <= 23) {
+                    ball.yVelocity++; // for more speed of wall
+                 }
          } else{
              ball.yVelocity--;
          }

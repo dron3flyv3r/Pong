@@ -5,7 +5,7 @@ public class Paddel extends Rectangle{
 
     int id;
     int yVelocity;
-    int speed = 10;
+    int speed = 12;
 
     Paddel(int x, int y, int PADDEL_WIDTH, int PADDEL_HEIGHT, int id){
         super(x,y,PADDEL_WIDTH,PADDEL_HEIGHT);
@@ -77,10 +77,10 @@ public class Paddel extends Rectangle{
     //just colors the paddels aka players
     public void draw(Graphics g) {
         if (id == 1) {
-            g.setColor(new Color(150,0,250,95));
+            g.setColor(Color.white);
         }
         else{
-            g.setColor(new Color(0,221,255));
+            g.setColor(Color.white);
         }
         g.fillRect(x, y, width, height);
     }
