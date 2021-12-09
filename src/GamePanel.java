@@ -166,9 +166,9 @@ public class GamePanel extends JPanel implements Runnable{
             if (delta >= 1) {
                 move();
                 checkCollision();
-                repaint();
                 delta--;
             }
+            repaint();
         }        
     }
 
