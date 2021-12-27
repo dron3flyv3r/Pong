@@ -1,4 +1,4 @@
-# Welcome to my Pong pages
+# Welcome to Pong 
 
 this code is not made by me, or i have I have written the code, but I follow a tutorial made by [Bro Code](https://www.youtube.com/watch?v=oLirZqJFKPE), so give him a follow and a like for me.
 
